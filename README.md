@@ -41,11 +41,6 @@ O projeto estará rodando em [http://localhost:3000](http://localhost:3000) 🚀
 
 ---
 
-## 📸 Demonstração
-🖼 Adicione aqui prints do projeto em funcionamento!
-
----
-
 ## 📂 Exportação de Logs
 Após detectar rostos, você pode visualizar os logs e exportá-los em CSV.
 
