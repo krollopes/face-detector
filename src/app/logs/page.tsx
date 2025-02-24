@@ -1,5 +1,6 @@
 'use client';
 
+import { exportLogsToCSV } from '@/utils/exportCSV';
 import { useEffect, useState } from 'react';
 
 export default function LogsPage() {
@@ -17,6 +18,14 @@ export default function LogsPage() {
   return (
     <main className='p-6 max-w-2xl mx-auto bg-white shadow-md rounded-lg'>
       <h1 className='text-2xl font-bold mb-4'>Detection Logs</h1>
+
+      <button
+        onClick={exportLogsToCSV}
+        className='bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition mb-4'
+      >
+        Export CSV
+      </button>
+
       {logs.length === 0 ? (
         <p>No logs available.</p>
       ) : (
