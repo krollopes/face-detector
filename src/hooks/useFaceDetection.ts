@@ -6,6 +6,7 @@ export const useFaceDetection = () => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [loading, setLoading] = useState(true);
+  const [faceCount, setFaceCount] = useState(0);
 
   useEffect(() => {
     const startVideo = async () => {
@@ -20,6 +21,9 @@ export const useFaceDetection = () => {
         .detectAllFaces(videoRef.current, new faceapi.TinyFaceDetectorOptions())
         .withFaceLandmarks();
 
+      setFaceCount(detections.length); // Atualiza a contagem de rostos detectados
+      saveDetectionLog(detections.length); // Salva log no Local Storage
+
       const canvas = canvasRef.current;
       const context = canvas.getContext('2d');
       if (context && videoRef.current) {
@@ -29,6 +33,18 @@ export const useFaceDetection = () => {
       }
     };
 
+    const saveDetectionLog = (count: number) => {
+      const logs = JSON.parse(
+        localStorage.getItem('face-detection-logs') || '[]'
+      );
+      const newLog = {
+        timestamp: new Date().toISOString(),
+        facesDetected: count,
+      };
+      logs.push(newLog);
+      localStorage.setItem('face-detection-logs', JSON.stringify(logs));
+    };
+
     loadModels().then(() => {
       setLoading(false);
       startVideo();
@@ -36,5 +52,5 @@ export const useFaceDetection = () => {
     });
   }, []);
 
-  return { videoRef, canvasRef, loading };
+  return { videoRef, canvasRef, faceCount, loading };
 };
