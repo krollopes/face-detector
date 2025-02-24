@@ -25,4 +25,8 @@ export const exportLogsToCSV = () => {
   a.click();
 
   URL.revokeObjectURL(url);
+
+  // Limpar logs após exportação
+  localStorage.removeItem('face-detection-logs');
+  alert('Logs exported and cleared successfully.');
 };
