@@ -1,4 +1,4 @@
-import { loadModels } from '@/services/face-api';
+import { loadFaceApiModels } from '@/services/face-api';
 import * as faceapi from 'face-api.js';
 import { useEffect, useRef, useState } from 'react';
 
@@ -45,7 +45,7 @@ export const useFaceDetection = () => {
       localStorage.setItem('face-detection-logs', JSON.stringify(logs));
     };
 
-    loadModels().then(() => {
+    loadFaceApiModels().then(() => {
       setLoading(false);
       startVideo();
       setInterval(detectFaces, 500);
