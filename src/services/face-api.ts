@@ -1,10 +1,17 @@
 import * as faceapi from 'face-api.js';
 
-export const loadModels = async () => {
-  const MODEL_URL = '/models';
+const MODEL_URL = '/models';
 
-  await faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL);
-  await faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL);
-  await faceapi.nets.faceRecognitionNet.loadFromUri(MODEL_URL);
-  await faceapi.nets.ssdMobilenetv1.loadFromUri(MODEL_URL);
+export const loadFaceApiModels = async () => {
+  try {
+    await Promise.all([
+      faceapi.nets.ssdMobilenetv1.loadFromUri(MODEL_URL),
+      faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL),
+      faceapi.nets.faceLandmark68Net.loadFromUri(MODEL_URL),
+      faceapi.nets.faceRecognitionNet.loadFromUri(MODEL_URL),
+    ]);
+    console.log('Modelos carregados com sucesso!');
+  } catch (error) {
+    console.error('Erro ao carregar os modelos do FaceAPI:', error);
+  }
 };
