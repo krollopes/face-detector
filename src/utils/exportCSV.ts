@@ -1,8 +1,10 @@
+import toast from 'react-hot-toast';
+
 export const exportLogsToCSV = () => {
   const logs = JSON.parse(localStorage.getItem('face-detection-logs') || '[]');
 
   if (logs.length === 0) {
-    alert('No logs available to export.');
+    toast.error('No logs available to export.');
     return;
   }
 
@@ -26,13 +28,14 @@ export const exportLogsToCSV = () => {
 
   URL.revokeObjectURL(url);
 
-  // Perguntar antes de apagar os logs
   const confirmDelete = confirm(
     'Do you want to clear the logs after exporting?'
   );
 
   if (confirmDelete) {
     localStorage.removeItem('face-detection-logs');
-    alert('Logs exported and cleared successfully.');
+    toast.success('Logs exported and cleared successfully.');
+  } else {
+    toast.success('Logs exported successfully.');
   }
 };
