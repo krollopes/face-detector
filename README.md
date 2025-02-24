@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎭 Face Detection with Next.js & OpenCV
 
-## Getting Started
+🚀 **Face Detection** é um mini projeto que combina **Next.js 14 (App Router)** e **OpenCV.js** para detectar rostos em tempo real. Ele também conta os rostos detectados e salva logs que podem ser exportados como CSV.
 
-First, run the development server:
+🔍 **Principais Recursos**:
+- 📷 Detecção de rostos usando **OpenCV.js**
+- 🔢 Contagem de rostos detectados
+- 📜 Registro de logs com timestamp
+- 📂 Exportação dos logs para **CSV**
+- 🚮 Confirmação antes de apagar os logs
+- ✅ Notificações toast para melhor UX
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🛠 **Tecnologias Utilizadas**
+- ⚡ [Next.js 14](https://nextjs.org/) - App Router
+- 🖼 [OpenCV.js](https://docs.opencv.org/master/d5/d10/tutorial_js_root.html) - Processamento de imagem
+- 💅 [Tailwind CSS](https://tailwindcss.com/) - Estilização
+- 🔥 [react-hot-toast](https://react-hot-toast.com/) - Notificações
+- 📦 [pnpm](https://pnpm.io/) - Gerenciador de pacotes
+
+---
+
+## 🚀 **Como Rodar o Projeto**
+
+### 📌 1️⃣ Instale as dependências
+Certifique-se de ter o **pnpm** instalado. Se não tiver, instale com:
+```sh
+npm install -g pnpm
+```
+Agora, instale os pacotes do projeto:
+```sh
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 📌 2️⃣ Inicie o servidor de desenvolvimento
+```sh
+pnpm dev
+```
+O projeto estará rodando em [http://localhost:3000](http://localhost:3000) 🚀
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📸 Demonstração
+🖼 Adicione aqui prints do projeto em funcionamento!
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 📂 Exportação de Logs
+Após detectar rostos, você pode visualizar os logs e exportá-los em CSV.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Acesse a página de logs em `/logs`
+2. Clique no botão "Export CSV & Clear Logs"
+3. Você verá um toast de sucesso e poderá baixar o CSV
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+⚠️ O sistema pedirá confirmação antes de excluir os logs
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔥 Contribuição
+Sinta-se à vontade para abrir issues e enviar pull requests! 💡
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+✅ Boas práticas seguidas no projeto:
+- Clean Code & Clean Architecture
+- Commits atômicos com mensagens em inglês
+- Código modular e reutilizável
+
+---
+
+## 📝 Licença
+Este projeto é de código aberto e está sob a licença MIT.
+
+---
+
+🚀 Feito com ❤️ por Caroline
