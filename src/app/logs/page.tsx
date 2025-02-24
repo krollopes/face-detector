@@ -20,8 +20,18 @@ export default function LogsPage() {
   };
 
   const handleExport = () => {
+    const initialLogs = [...logs]; // Salva os logs antes de exportar
     exportLogsToCSV();
-    setLogs([]); // Atualiza a UI após a limpeza dos logs
+
+    // Se os logs forem apagados, atualiza o estado
+    setTimeout(() => {
+      const currentLogs = JSON.parse(
+        localStorage.getItem('face-detection-logs') || '[]'
+      );
+      if (currentLogs.length === 0 && initialLogs.length > 0) {
+        setLogs([]);
+      }
+    }, 500);
   };
 
   return (
